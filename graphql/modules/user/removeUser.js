@@ -15,7 +15,7 @@ export default async function removeUser(id){
 
         return !!result;
     }catch(e){
-        const erro = new Error(`Failed to update User, because: ${e.message}`)
+        const erro = new Error(`Failed to remove User, because: ${e.message}`)
         throw erro;
     }
 }
