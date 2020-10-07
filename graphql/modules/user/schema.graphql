@@ -1,0 +1,38 @@
+input UserInput {
+    name: String!
+    email: String!
+    password: String!
+    picture: Upload
+    telefone: String
+    address: AddressInput
+}
+
+input UserUpdateInput {
+    name: String
+    email: String
+    password: String
+    picture: Upload
+    telefone: String
+    address: AddressInput
+}
+
+type User {
+    _id: ID!
+    name: String!
+    email: String!
+    password: String
+    picture: String
+    telefone: String
+    address: Address
+}
+
+type Query {
+    users: [User!]
+    user(id: ID!): User!
+}
+
+type Mutation {
+    createUser(data: UserInput!): User!
+    updateUser(id: ID!, data: UserUpdateInput!): User!
+    removeUser(id: ID!): Boolean!
+}

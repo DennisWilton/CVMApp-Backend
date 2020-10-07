@@ -1,0 +1,43 @@
+{
+  "name": "cvm",
+  "version": "1.0.0",
+  "description": "A WebAPP for a religious camp promoted by the youth group of the Baptist Church Maranata Independente in Cristo Rei.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node index.js -e .js,.graphql,.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DennisWilton/cvm.git"
+  },
+  "keywords": [
+    "Church",
+    "Baptist",
+    "Camping",
+    "WebAPP"
+  ],
+  "author": "DenisWilton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DennisWilton/cvm/issues"
+  },
+  "homepage": "https://github.com/DennisWilton/cvm#readme",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "apollo-server": "^2.18.2",
+    "axios": "^0.20.0",
+    "babel-node": "0.0.1-security",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "merge-graphql-schemas": "^1.7.8",
+    "mongoose": "^5.10.8",
+    "mongoose-unique-validator": "^2.0.3",
+    "uuid": "^8.3.1"
+  }
+}
