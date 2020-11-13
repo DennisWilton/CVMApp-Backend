@@ -1,0 +1,4 @@
+type Query {
+    login(cpf: String! password: String!): User
+    verify_token(token: String!): User
+}

@@ -1,0 +1,9 @@
+type Church {
+    name: String!
+    pastor: String!
+}
+
+input ChurchInput {
+    name: String!
+    pastor: String!
+}

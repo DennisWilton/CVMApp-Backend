@@ -9,7 +9,7 @@ export default async function uploadUserPicture(_picture){
         if(!mimetype.match("image")) throw new Error("Invalid file type. Please, upload an image!")
         const file = createReadStream();
 
-        file.pipe(createWriteStream(path.join(__dirname, "../public/pictures/users", _picture.id + ".jpg" )))
+        file.pipe(createWriteStream(path.join(__dirname, "../../public/pictures/users", _picture.id + ".jpg" )))
 
     } catch(e){
         throw new Error(`Failed to upload user picture. ${e}`);

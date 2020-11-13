@@ -1,5 +1,5 @@
 import User from "../../../models/user/User"
-import uploadUserPicture from "../../../util/uploadUserPicture";
+import uploadUserPicture from "../../../util/User/uploadUserPicture";
 
 export default async function updateUser(id, data){
     try {

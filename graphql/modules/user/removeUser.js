@@ -1,5 +1,5 @@
 import User from "../../../models/user/User"
-import removeUserPicture from "../../../util/removeUserPicture";
+import removeUserPicture from "../../../util/User/removeUserPicture";
 
 export default async function removeUser(id){
     try {
