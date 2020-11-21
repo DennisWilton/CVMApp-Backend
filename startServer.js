@@ -1,5 +1,7 @@
-import { ApolloServer, PubSub } from "apollo-server";
 import mongoose from "mongoose";
+import { ApolloServer, gql, PubSub } from 'apollo-server-express';
+import express from 'express';
+import bodyParser from "body-parser";
 
 export default async function startServer({ typeDefs, resolvers }) {
   try {
@@ -14,21 +16,28 @@ export default async function startServer({ typeDefs, resolvers }) {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
     mongoose.set('useCreateIndex', true);
 
-    const pubsub = new PubSub();
 
+    
+    const pubsub = new PubSub();
     const server = new ApolloServer({
       typeDefs,
       resolvers,
       context: { pubsub },
     });
 
-    server.listen(process.env.PORT).then(({ url }) => {
+    const app = express();
+
+    server.applyMiddleware({app})
+
+    app.listen(process.env.PORT, function(){
       console.log(new Date().toLocaleString())
-      console.log(`Server is running at ${url}`);
+      console.log(`Server is running.`);
     });
+
+    app.use(express.static('public'));
+
   } catch (e) {
     console.log("\nServer starting fail:\n");
     console.log(`>`, e.message);
