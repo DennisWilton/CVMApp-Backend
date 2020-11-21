@@ -12,6 +12,7 @@ type News {
     content: String!
     author: User!
     comments: [String!]
+    picture: [String]
 }
 
 type Query {

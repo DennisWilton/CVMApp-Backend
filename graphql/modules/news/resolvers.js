@@ -4,10 +4,13 @@ import createNews from './createNews';
 import updateNews from './updateNews';
 import removeNews from './removeNews';
 import { UserInputError } from 'apollo-server';
+import getNewsPictures from './methods/getNewsPictures';
+
 
 export default {
     News: {
         author: ({author}, {id}) => User.findById(author, {password: 0}),
+        picture: ({id}) => getNewsPictures(id)
     },
     Query: {
         allNews: async () => { 

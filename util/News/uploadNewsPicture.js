@@ -10,14 +10,10 @@ export default async function uploadNewsPicture(_picture){
             if(!mimetype.match("image")) throw new Error("Invalid file type. Please, upload an image!")
             const file = createReadStream();
             
-            fs.mkdir(path.join(__dirname, '../../public/pictures/news',_picture.newsID), (err) => { 
-                if (err) { 
-                    return console.error(err); 
-                } 
-                console.log('Directory created successfully!'); 
-            }); 
+            const dir = path.join(__dirname, '../../public/pictures/news',_picture.newsID);
+            if(!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive: true})
             
-            file.pipe(createWriteStream(path.join(__dirname, "../../public/pictures/news", _picture.newsID, uuid.v1() + ".jpg" )))
+            file.pipe(createWriteStream(path.join(dir, uuid.v1() + ".jpg" )))
     } catch(e){
         throw new Error(`Failed to upload news picture. ${e}`);
     }
