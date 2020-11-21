@@ -1,0 +1,26 @@
+input NewsInput {
+    title: String!
+    content: String!
+    author: ID!
+    comments: [String!]
+    picture: Upload
+}
+
+type News {
+    _id: ID!
+    title: String!
+    content: String!
+    author: User!
+    comments: [String!]
+}
+
+type Query {
+    allNews: [News!]
+    news(id: ID!): News!
+}
+
+type Mutation {
+    createNews(data: NewsInput!): News!
+    updateNews(id: ID!, data: NewsInput!): News!
+    removeNews(id: ID!): Boolean!
+}
