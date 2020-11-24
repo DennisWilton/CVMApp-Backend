@@ -1,5 +1,6 @@
 import News from "../../../models/news/News"
 import uploadNewsPicture from "../../../util/News/uploadNewsPicture";
+import createPicturesFolder from './methods/createPicturesFolder';
 
 export default async function createNews({title, content, author, picture, ...options}){
     try {
@@ -9,6 +10,8 @@ export default async function createNews({title, content, author, picture, ...op
         const news = new News({ title, content, author });
         
         const newsSaved = await news.save();
+
+        await createPicturesFolder(news.id);
 
         if(picture) {
             if(Array.isArray(picture)){

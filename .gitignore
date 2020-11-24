@@ -107,3 +107,5 @@ dist
 # TernJS port file
 .tern-port
 >>>>>>> 8c525a531bbc6cf055635d5a6dcb8352ff9493bf
+
+public/pictures/news/*
