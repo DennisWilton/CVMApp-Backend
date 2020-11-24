@@ -109,3 +109,5 @@ dist
 >>>>>>> 8c525a531bbc6cf055635d5a6dcb8352ff9493bf
 
 public/pictures/news/*
+public/pictures/posts/*
+public/pictures/users/*
