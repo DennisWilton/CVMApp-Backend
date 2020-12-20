@@ -33,7 +33,7 @@ export default async function startServer({ typeDefs, resolvers }) {
 
     app.listen(process.env.PORT, function(){
       console.log(new Date().toLocaleString())
-      console.log(`Server is running.`);
+      console.log(`Server is running at ${process.env.PORT}.`);
     });
 
     app.use(express.static('public'));
