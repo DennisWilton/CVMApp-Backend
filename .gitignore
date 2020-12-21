@@ -1,6 +1,8 @@
 <<<<<<< HEAD
 .env
 node_modules/
+node_modules.rar
+node_modules.zip
 =======
 # Logs
 logs
