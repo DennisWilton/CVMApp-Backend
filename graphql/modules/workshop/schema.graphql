@@ -1,0 +1,22 @@
+input WorkshopInput {
+    name: String!
+    description: String
+}
+
+
+type Workshop {
+    _id: ID!
+    name: String!
+    description: String
+}
+
+type Query {
+    workshops: [Workshop!]
+    workshop(id: ID!): Workshop!
+}
+
+type Mutation {
+    createWorkshop(data: WorkshopInput!): Workshop!
+    updateWorkshop(id: ID!, data: WorkshopInput!): Workshop!
+    removeWorkshop(id: ID!): Boolean!
+}

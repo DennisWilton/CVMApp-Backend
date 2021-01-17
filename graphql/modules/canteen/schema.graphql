@@ -1,0 +1,25 @@
+type CanteenItem {
+    _id: ID!
+    name: String!
+    price: Float!
+    quantity: Int!
+    tags: [String!]
+}
+
+input CanteenItemInput {
+    name: String!
+    price: Float!
+    quantity: Int!
+    tags: [String!]
+}
+
+type Query {
+    canteenItems: [CanteenItem!]
+    canteenItem(id: ID!): CanteenItem!
+}
+
+type Mutation {
+    createCanteenItem(data: CanteenItemInput!): CanteenItem!
+    updateCanteenItem(id: ID!, data: CanteenItemInput!): CanteenItem!
+    removeNews(id: ID!): Boolean!
+}
