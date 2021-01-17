@@ -17,6 +17,12 @@ const userSchema = new mongoose.Schema({
     church: {
         name: String,
         minister: String,
+    },
+    isConfirmado: Boolean,
+    payment: {
+        actualCode: String,
+        actualStatus: Number,
+        failedCodes: [String]
     }
 }, {collection: 'users'});
 
