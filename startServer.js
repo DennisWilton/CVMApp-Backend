@@ -10,6 +10,7 @@ import morgan from 'morgan';
 
 //routes
 import userRoute from './routes/User';
+import authRoute from './routes/auth';
 
 export default async function startServer({ typeDefs, resolvers }) {
   try {
@@ -52,9 +53,13 @@ export default async function startServer({ typeDefs, resolvers }) {
     server.applyMiddleware({app})
     
     app.use(express.static('public'));
+    app.use('/dashboard', express.static('dashboard-ui'));
 
     app.use('/buying', pagseguro.routes);
-    app.use('/user', userRoute)
+    app.use('/user', userRoute);
+    app.use('/users', userRoute);
+
+    app.use('/auth', authRoute);
 
     app.listen(process.env.PORT, function(){
 
