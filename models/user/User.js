@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     cpf: {type: String, required: true, unique: true, index: true},
     picture: String,
     telefone: String,
+    oficina: Number,
     address: {
         street: String,
         number: Number,

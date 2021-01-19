@@ -12,6 +12,8 @@ export default {
         login: async (_, {cpf, password}) => { 
 
             cpf = cpf.replace(/\D/g, "");
+            
+            console.log(cpf, password);
 
             const user = await User.findOne({cpf});
             if(!user) throw new Error(`Usuário não encontrado!`);
@@ -22,6 +24,7 @@ export default {
             const _user = user.toObject();
             _user.password = undefined;
             _user.token = jwt.sign({id: _user._id}, process.env.SECRET);
+            
             
             return _user;
         },
